@@ -24,8 +24,7 @@ version of the decrypter written in pure PHP is much more suitable for such purp
 
 ## Changelog
 
-v1.0.RC1	[2016-01-07]
----
+v1.0-RC1	[2016-01-07]
 * decrypter for Linux.Encoder version 3
 * batch mode in-browser decryption
 
