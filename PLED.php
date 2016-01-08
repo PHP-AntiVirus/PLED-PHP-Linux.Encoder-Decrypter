@@ -106,7 +106,7 @@ function decrypt_file($filePath) {
     if ($padding != 0)
         ftruncate($decFileHandle, $written - (16 - $padding));
 
-    smart_echo('File '.$decryptedFilePath." successfuly decrypted.\n");
+    smart_echo("File $decryptedFilePath successfuly decrypted.\n");
 }
 
 function smart_echo($string){
