@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP "Linux.Encoder" Decrypter - PLED
- * @version 1.0.BETA
+ * @version 1.0-RC1
  *
  * @author Bernard Toplak <bernard@php-antivirus.com>
  * @link http://www.php-antivirus.com
