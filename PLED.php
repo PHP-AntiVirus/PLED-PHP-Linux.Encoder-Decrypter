@@ -1,26 +1,30 @@
 <?php
 /**
  * PHP "Linux.Encoder" Decrypter - PLED
- * @version 1.0-RC3
  *
  * @author Bernard Toplak <bernard@php-antivirus.com>
  * @link http://www.php-antivirus.com
  * @link http://gitlab.com/btoplak
  *
- * For MORE INFORMATION about this script please check README file
+ * For MORE INFORMATION about this script please check the README file
  *
+ * @copyright (c) 2016, Bernard Toplak
  * 
- * @license GNU Affero Public License, version 3 (AGPL-3.0)
- * http://opensource.org/licenses/agpl-3.0.html
- * This program is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Affero General Public License as published by the Free Software
- * Foundation; either version 3 of the License, or (at your option) any later
- * version.
+ * @license GNU Affero General Public License, version 3 (AGPL-3.0)
+ * http://www.gnu.org/licenses/agpl.txt
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for
- * more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
@@ -31,6 +35,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 ini_set('output_buffering', '0'); // disable output buffering
 ini_set('implicit_flush', '1'); // disable output buffering
 
+$version = '1.0';
 
 $ignoreDirFiles = array('.','..','.DS_Store','.svn','.git','README.md'); // dirs/files to ignore
 $encryptedExtension = 'encrypted'; // extension of the encrypted files
@@ -189,5 +194,10 @@ echo str_repeat('-', 50)."\n";
 echo '</pre>';
 
 smart_echo("Congratulations, PLED has decrypted your files succesfully!\n");
-smart_echo("Because of a bug in the encryption the output files might still contain 16 random bytes at the end.\nPlease check your files.");
-
+smart_echo(<<<LICENSE
+$version Copyright (C) 2016  Bernard Toplak
+This program comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it 
+under certain conditions;
+LICENSE
+);
