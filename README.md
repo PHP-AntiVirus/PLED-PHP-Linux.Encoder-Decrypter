@@ -22,6 +22,16 @@ version of the decrypter written in pure PHP is much more suitable for such purp
 
 
 ## Changelog
+##### v1.0	[2016-01-10]
+* added: target extension check
+* added: option to define plain-text file extensions, only which will be cleaned from garbage
+* added: PHP version check
+* added: counter for files cleaned from garbage
+* fixed: issue with remaining newline character in last 16 bytes
+* improved: encrypter garbage cleanup function
+* improved: extension check
+* removed: erroneous variables
+
 ##### v1.0-RC2	[2016-01-09]
 * added: encrypter garbage cleanup function
 * added: stats tracking and printing
@@ -41,14 +51,14 @@ version of the decrypter written in pure PHP is much more suitable for such purp
 * ??? (send me suggestions)
 
 
-## Author
-Bernard Toplak bernard@php-antivirus.com
-[www.php-antivirus.com](http://www.php-antivirus.com)
-
-
 ## Original code source and author
 All the credits for original decrypter algorithm go to the **Radu Caragea** from [Bitdefender Labs Team](https://labs.bitdefender.com/2016/01/third-iteration-of-linux-ransomware-still-not-ready-for-prime-time/).
 Thank you Radu and the team, keep up the good work!
 
 
-Contact me if you need any assistance in decrypting the files.
+## PLED Author
+Bernard Toplak bernard@php-antivirus.com
+[www.php-antivirus.com](http://www.php-antivirus.com)
+
+Be free to contact me if you need any assistance in decrypting the files, 
+or don't have time, resources or knowledge to do it yourself.
