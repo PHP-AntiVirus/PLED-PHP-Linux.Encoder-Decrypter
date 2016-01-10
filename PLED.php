@@ -3,8 +3,10 @@
  * PHP "Linux.Encoder" Decrypter - PLED
  *
  * @author Bernard Toplak <bernard@php-antivirus.com>
- * @link http://www.php-antivirus.com
- * @link http://gitlab.com/btoplak
+ * @author Radu Caragea, Bitdefender https://labs.bitdefender.com/
+ * 
+ * @link https://www.php-antivirus.com/
+ * @link https://github.com/PHP-AntiVirus/
  *
  * For MORE INFORMATION about this script please check the README file
  *
@@ -29,13 +31,13 @@
  */
 
 /* * * * * * * * * * * * * * *  SETTINGS  * * * * * * * * * * * * * * */
-ini_set('max_execution_time', '120'); // supress problems with timeouts
-ini_set('set_time_limit', '120'); // supress problems with timeouts
+ini_set('max_execution_time', '600'); // supress problems with timeouts
+ini_set('set_time_limit', '600'); // supress problems with timeouts
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 ini_set('output_buffering', '0'); // disable output buffering
 ini_set('implicit_flush', '1'); // disable output buffering
 
-$version = '1.0';
+$version = '1.1';
 
 $ignoreDirFiles = array('.','..','.DS_Store','.svn','.git','README.md'); // dirs/files to ignore
 $encryptedExtension = 'encrypted'; // extension of the encrypted files
@@ -112,7 +114,7 @@ function decrypt_file($filePath) {
     
     $targetExtension = end(explode('.',$decryptedFilePath));
     if ($padding != 0 && in_array($targetExtension, $plaintextExtensions)) {
-         smart_echo("File $decryptedFilePath will be cleaned from garbage bytes.\n");
+         smart_echo('['.date('y-m-d h:i:s')."] .. $decryptedFilePath will be cleaned from garbage bytes.\n");
          # copy($decryptedFilePath, $decryptedFilePath.'.raw');
          $filesCleanedCount += 1;
          washmachine($decFileHandle, $written, $padding, $last_bytes);
@@ -121,7 +123,7 @@ function decrypt_file($filePath) {
     fclose ($decFileHandle);
     fclose ($encFileHandle);
     
-    smart_echo("File $decryptedFilePath successfuly decrypted.\n");
+    smart_echo('['.date('y-m-d h:i:s')."] .. $decryptedFilePath successfuly decrypted.\n");
 }
 
 
@@ -154,7 +156,7 @@ function smart_echo($string){
 
 
 $fileCount = $fileEncCount = $folderCount = $sumSize = 0;
-$start = microtime();
+$start = microtime(1);
 while ($dir4scan) {
     $thisDir = array_pop($dir4scan);
     if ($dirContent = scandir($thisDir)) {
@@ -178,26 +180,30 @@ while ($dir4scan) {
         }
     }
 }
-$end = microtime();
+$end = microtime(1);
 $runTime = $end - $start;
 
 echo '<pre>';
-echo str_repeat('-', 50)."\n";
-smart_echo(str_pad('|  Folders scanned : '.$folderCount, 50)."|\n");
-smart_echo(str_pad('|  Files scanned : '.$fileCount, 50)."|\n");
-smart_echo(str_pad('|  Files decrypted : '.$fileEncCount, 50)."|\n");
-smart_echo(str_pad('|  Files with garbage cleaned : '.$filesCleanedCount, 50)."|\n");
-smart_echo(str_pad('|  Scanned size : '.round($sumSize/1024,2).' kB', 50)."|\n");
-smart_echo(str_pad('|  Scanning time : '.round($runTime,2).' sec', 50)."|\n");
-smart_echo(str_pad('|  Speed : '.round($fileCount/$runTime, 2).' files/sec || '.round($sumSize/1024/$runTime, 2).' kB/sec', 50)."|\n");
-echo str_repeat('-', 50)."\n";
-echo '</pre>';
-
-smart_echo("Congratulations, PLED has decrypted your files succesfully!\n");
+echo str_repeat('-', 70)."\n";
+smart_echo(str_pad('|  Folders scanned : '.$folderCount, 70)."|\n");
+smart_echo(str_pad('|  Files scanned : '.$fileCount, 70)."|\n");
+smart_echo(str_pad('|  Scanned size : '.round($sumSize/1024,2).' kB', 70)."|\n");
+smart_echo(str_pad('|  Scanning time : '.round($runTime,2).' sec', 70)."|\n");
+smart_echo(str_pad('|  Scan speed : '.round($sumSize/1024/$runTime, 2).' kB/sec   ||   '.round($fileCount/$runTime, 2).' files/sec', 70)."|\n");
+echo str_repeat('-', 70)."\n";
+smart_echo(str_pad('|  Files decrypted : '.$fileEncCount, 70)."|\n");
+smart_echo(str_pad('|  Files with garbage cleaned : '.$filesCleanedCount, 70)."|\n");
+smart_echo(str_pad('|  Decrypt speed : '.round($sumSize/1024/$runTime, 2).' kB/sec   ||   '.round($fileEncCount/$runTime, 2).' files/sec', 70)."|\n");
+echo str_repeat('-', 70)."\n";
+smart_echo('['.date('y-m-d h:i:s')."] .... Congratulations, PLED has decrypted your files succesfully!\n");
+smart_echo(str_repeat('-', 70)."\n");
 smart_echo(<<<LICENSE
-$version Copyright (C) 2016  Bernard Toplak
+PLED script $version - Copyright (C) 2016  Bernard Toplak
 This program comes with ABSOLUTELY NO WARRANTY;
 This is free software, and you are welcome to redistribute it 
 under certain conditions;
+
 LICENSE
 );
+smart_echo(str_repeat('-', 70)."\n");
+echo '</pre>';

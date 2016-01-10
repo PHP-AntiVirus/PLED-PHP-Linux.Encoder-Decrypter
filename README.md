@@ -52,14 +52,14 @@ version of the decrypter written in pure PHP is much more suitable for such purp
 * ??? (send me suggestions)
 
 
-## Original code source and author
+## Original source code author
 All the credits for original decrypter algorithm go to the **Radu Caragea** from [Bitdefender Labs Team](https://labs.bitdefender.com/2016/01/third-iteration-of-linux-ransomware-still-not-ready-for-prime-time/).
 Thank you Radu and the team, keep up the good work!
 
 
 ## PLED Author
 Bernard Toplak bernard@php-antivirus.com
-[www.php-antivirus.com](http://www.php-antivirus.com)
+[www.php-antivirus.com](https://www.php-antivirus.com)
 
 Be free to contact me if you need any assistance in decrypting the files, 
 or don't have time, resources or knowledge to do it yourself.
