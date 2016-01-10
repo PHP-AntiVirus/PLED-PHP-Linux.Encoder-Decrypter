@@ -31,6 +31,7 @@ version of the decrypter written in pure PHP is much more suitable for such purp
 * improved: encrypter garbage cleanup function
 * improved: extension check
 * removed: erroneous variables
+* fixed: licensing data including with packages
 
 ##### v1.0-RC2	[2016-01-09]
 * added: encrypter garbage cleanup function
@@ -44,9 +45,9 @@ version of the decrypter written in pure PHP is much more suitable for such purp
 
 
 ## TODO
+* Linux.Encoder.1 versions decryption ? ... send me 10 sample files encrypted with L.E.1
 * single-file decryption
 * CLI mode
-* other Linux.Encoder versions decoding ?
 * batch encrypted files (re)moval
 * ??? (send me suggestions)
 
@@ -62,3 +63,21 @@ Bernard Toplak bernard@php-antivirus.com
 
 Be free to contact me if you need any assistance in decrypting the files, 
 or don't have time, resources or knowledge to do it yourself.
+
+## Licensing
+    
+    Copyright (c) 2016, Bernard Toplak
+    License: GNU Affero General Public License, version 3 (AGPL-3.0)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
