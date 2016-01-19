@@ -58,8 +58,10 @@ Thank you Radu and the team, keep up the good work!
 
 
 ## PLED Author
-Bernard Toplak bernard@php-antivirus.com
+Bernard Toplak 
+bernard@php-antivirus.com
 [www.php-antivirus.com](https://www.php-antivirus.com)
+Twitter: @toplak
 
 Be free to contact me if you need any assistance in decrypting the files, 
 or don't have time, resources or knowledge to do it yourself.
