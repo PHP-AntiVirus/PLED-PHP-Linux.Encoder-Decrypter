@@ -20,6 +20,9 @@ version of the decrypter written in pure PHP is much more suitable for such purp
 * upload to your web folder (browser execution), or any folder (command line execution)
 * browser: open the URL which corresponds to the location of the PLED file
 
+## Download
+https://github.com/PHP-AntiVirus/PLED-PHP-Linux.Encoder-Decrypter/releases/latest
+
 
 ## Changelog
 ##### v1.0	[2016-01-10]
